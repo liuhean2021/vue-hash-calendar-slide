@@ -1,6 +1,6 @@
 {
   "name": "vue-hash-calendar-slide",
-  "version": "1.9.7",
+  "version": "1.9.8",
   "author": "liuhean",
   "repository": {
     "type": "git",
@@ -70,12 +70,6 @@
   "config": {
     "commitizen": {
       "path": "cz-customizable"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "browserslist": [

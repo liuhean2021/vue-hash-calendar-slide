@@ -18,7 +18,7 @@
                            class="calendar_day calendar_first_today" ref="calendarDay" :style="{'background': calendar_day_checked_fun(date,'background'), 'color': calendar_day_checked_fun(date,'color', i), 'font-size': dateFontsize(date.month)}">
                           <div>{{ showMonthUnit ? language.MONTH && language.MONTH[date.month] : date.day }}</div>
                           <div v-if="!!markDateDotColor(date, 'bool')" :style="{'background': markDateDotColor(date)}" class="calendar_dot"></div>
-                          <div v-if="!!markDateBottomText(date, 'bool') && !isCheckedDay(date)" class="calendar_bottom_text" :style="{color: markDateBottomText(date)['color']}">{{ markDateBottomText(date)['text'] }}</div>
+                          <div v-if="!!markDateBottomText(date, 'bool')" class="calendar_bottom_text" :style="{color: markDateBottomText(date)['color']}">{{ markDateBottomText(date)['text'] }}</div>
                           <div v-if="!!markDateTopRightIcon(date, 'bool')" style="background: red;width: 14px;padding-left: 5.4px;border-radius: 48%;height: 14px;line-height: 12px;position: absolute;top: 0px;right: 5px;">
                             <span style="color: white;height: 7px;font-size: 9px;">!</span>
                           </div>
@@ -26,7 +26,7 @@
                         <div v-else class="calendar_day" ref="calendarDay" :style="{'background': calendar_day_checked_fun(date,'background'),'color': calendar_day_checked_fun(date,'color', i), 'border': todayBorder(date)}">
                           <div>{{ date.day }}</div>
                           <div v-if="!!markDateDotColor(date, 'bool')" :style="{'background': markDateDotColor(date)}" class="calendar_dot"></div>
-                          <div v-if="!!markDateBottomText(date, 'bool') && !isCheckedDay(date)" class="calendar_bottom_text" :style="{color: markDateBottomText(date)['color']}">{{ markDateBottomText(date)['text'] }}</div>
+                          <div v-if="!!markDateBottomText(date, 'bool')" class="calendar_bottom_text" :style="{color: markDateBottomText(date)['color']}">{{ markDateBottomText(date)['text'] }}</div>
                           <div v-if="!!markDateTopRightIcon(date, 'bool')" style="background: red;width: 14px;padding-left: 5.4px;border-radius: 48%;height: 14px;line-height: 12px;position: absolute;top: 0px;right: 5px;">
                             <span style="color: white;height: 7px;font-size: 9px;">!</span>
                           </div>
@@ -876,10 +876,11 @@ export default {
       font-size 9px!important
       height 15px
       position absolute
-      top 25px
+      top 30px
       overflow hidden
       text-overflow ellipsis
       text-align center
+      transform scale(0.8)
     }
 
     .arrowBlock {
