@@ -1,9 +1,3 @@
-/**
- * @Description:   中文
- * @Author:         TSY
- * @CreateDate:     2020/3/22 21:59
- */
-
 export default {
   CONFIRM: '确定',
   TODAY: '今天',

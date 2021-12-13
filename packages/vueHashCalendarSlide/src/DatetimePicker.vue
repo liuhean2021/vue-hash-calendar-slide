@@ -1,9 +1,3 @@
-/**
-* @Description:    日期、时间选择器
-* @Author:         TSY
-* @CreateDate:     2019/5/17 16:22
-* @Email:          t@tsy6.com
-*/
 <template>
     <div>
         <div class="hash-calendar" :class="{'calendar_inline': model === 'inline'}" v-show="isShowDatetimePicker"

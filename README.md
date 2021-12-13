@@ -3,14 +3,14 @@
 
 # vue-hash-calendar-slide
 
-# 1. 体验效果请先克隆仓库 地址: https://github.com/allsmy/vue-hash-calendar-slide
+# 1. 体验效果请先克隆仓库 地址: https://github.com/liuhean2021/vue-hash-calendar-slide
 # 2. 本地运行仓库，安装依赖命令： npm i 启动项目命令： npn run server
 # 3. 运行成功后浏览器访问： http://localhost:8080/
 # 4. 有很多配置属性懒得写出来，可自行修改参数查看效果
 # 5. 如果需要其他功能，可以自己修改代码，或者提问题
 
 - 更多更新查看提交日志：
-  https://github.com/allsmy/vue-hash-calendar-slide/commits/master
+  https://github.com/liuhean2021/vue-hash-calendar-slide/commits/master
 - 增加禁用日期颜色控制
 - 增加外部传参控制上下滑动，方便复杂页面集成
 - 修复左右滑动过程中触发点击事件的bug
@@ -41,7 +41,7 @@ Vue.use(vueHashCalendarSlide)
  <vue-hash-calendar-slide></vue-hash-calendar-slide>
 ```
 
-## github 地址：[https://github.com/allsmy/vue-hash-calendar-slide](https://github.com/allsmy/vue-hash-calendar-slide)
+## github 地址：[https://github.com/liuhean2021/vue-hash-calendar-slide](https://github.com/liuhean2021/vue-hash-calendar-slide)
 
 # API
 

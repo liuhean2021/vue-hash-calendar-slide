@@ -1,8 +1,3 @@
-/**
- * @Description:    导出整个库
- * @Author:         TSY
- * @CreateDate:     2019/8/31 12:30
- */
 import './vueHashCalendarSlide/style/reset.styl'
 
 // 导入时间选择器组件

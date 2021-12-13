@@ -1,15 +1,14 @@
 {
   "name": "vue-hash-calendar-slide",
-  "version": "1.9.5",
-  "author": "allsmy",
+  "version": "1.9.7",
+  "author": "liuhean",
   "repository": {
     "type": "git",
-    "url": "https://github.com/allsmy/vue-hash-calendar-slide"
+    "url": "https://github.com/liuhean2021/vue-hash-calendar-slide"
   },
   "bugs": {
-    "url": "https://github.com/allsmy/vue-hash-calendar-slide/issues"
+    "url": "https://github.com/liuhean2021/vue-hash-calendar-slide/issues"
   },
-  "homepage": "https://www.hxkj.vip",
   "license": "MIT",
   "description": "vue 周 月 时间选择器",
   "main": "lib/vue-hash-calendar-slide.umd.min.js",

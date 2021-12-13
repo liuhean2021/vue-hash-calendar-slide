@@ -1,8 +1,3 @@
-/**
- * @Description:    各种工具类
- * @Author:         TSY
- * @CreateDate:     2018/6/9 13:28
- */
 
 /**
  * 判断安卓与IOS平台

@@ -1,9 +1,3 @@
-/**
-* @Description:    时间选择组件
-* @Author:         TSY
-* @Email:          t@tsy6.com
-* @CreateDate:     2019/5/26 22:53
-*/
 <template>
     <div class="time_body" v-show="show">
         <div class="time_group">

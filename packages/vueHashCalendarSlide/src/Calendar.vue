@@ -1,9 +1,3 @@
-/**
-* @Description:    日历组件
-* @Author:         TSY
-* @Email:          t@tsy6.com
-* @CreateDate:     2019/5/26 22:53
-*/
 <template>
     <div class="calendar_body" v-show="show">
         <div class="calendar_week" ref="weekTitle" :style="{color: `${calendarWeekColor}`}">
@@ -24,16 +18,16 @@
                            class="calendar_day calendar_first_today" ref="calendarDay" :style="{'background': calendar_day_checked_fun(date,'background'), 'color': calendar_day_checked_fun(date,'color', i), 'font-size': dateFontsize(date.month)}">
                           <div>{{ showMonthUnit ? language.MONTH && language.MONTH[date.month] : date.day }}</div>
                           <div v-if="!!markDateDotColor(date, 'bool')" :style="{'background': markDateDotColor(date)}" class="calendar_dot"></div>
-                          <div v-else-if="!!markDateBottomText(date, 'bool') && !isCheckedDay(date)" class="calendar_bottom_text" :style="{color: markDateBottomText(date)['color']}">{{ markDateBottomText(date)['text'] }}</div>
-                          <div v-else-if="!!markDateTopRightIcon(date, 'bool')" style="background: red;width: 14px;padding-left: 5.4px;border-radius: 48%;height: 14px;line-height: 12px;position: absolute;top: 0px;right: 5px;">
+                          <div v-if="!!markDateBottomText(date, 'bool') && !isCheckedDay(date)" class="calendar_bottom_text" :style="{color: markDateBottomText(date)['color']}">{{ markDateBottomText(date)['text'] }}</div>
+                          <div v-if="!!markDateTopRightIcon(date, 'bool')" style="background: red;width: 14px;padding-left: 5.4px;border-radius: 48%;height: 14px;line-height: 12px;position: absolute;top: 0px;right: 5px;">
                             <span style="color: white;height: 7px;font-size: 9px;">!</span>
                           </div>
                         </div>
                         <div v-else class="calendar_day" ref="calendarDay" :style="{'background': calendar_day_checked_fun(date,'background'),'color': calendar_day_checked_fun(date,'color', i), 'border': todayBorder(date)}">
                           <div>{{ date.day }}</div>
                           <div v-if="!!markDateDotColor(date, 'bool')" :style="{'background': markDateDotColor(date)}" class="calendar_dot"></div>
-                          <div v-else-if="!!markDateBottomText(date, 'bool') && !isCheckedDay(date)" class="calendar_bottom_text" :style="{color: markDateBottomText(date)['color']}">{{ markDateBottomText(date)['text'] }}</div>
-                          <div v-else-if="!!markDateTopRightIcon(date, 'bool')" style="background: red;width: 14px;padding-left: 5.4px;border-radius: 48%;height: 14px;line-height: 12px;position: absolute;top: 0px;right: 5px;">
+                          <div v-if="!!markDateBottomText(date, 'bool') && !isCheckedDay(date)" class="calendar_bottom_text" :style="{color: markDateBottomText(date)['color']}">{{ markDateBottomText(date)['text'] }}</div>
+                          <div v-if="!!markDateTopRightIcon(date, 'bool')" style="background: red;width: 14px;padding-left: 5.4px;border-radius: 48%;height: 14px;line-height: 12px;position: absolute;top: 0px;right: 5px;">
                             <span style="color: white;height: 7px;font-size: 9px;">!</span>
                           </div>
                         </div>
@@ -219,11 +213,7 @@ export default {
         this.markDateColorObj = []
         val.forEach(item => {
           item.date.forEach(date => {
-            let prefix = ''
-            if (item.type === 'bottomText') {
-              prefix = 'bottomText'
-            }
-            this.$set(this.markDateColorObj, date + prefix, {color: typeof item.color === 'string' ? item.color : '', type: item.type, text: typeof item.text === 'string' ? item.text : ''})
+            this.$set(this.markDateColorObj, date + '' + item.type, {color: typeof item.color === 'string' ? item.color : '', type: item.type, text: typeof item.text === 'string' ? item.text : ''})
           })
         })
       },
@@ -483,7 +473,7 @@ export default {
         if (type === 'color') return this.mainBackgroundColor
         if (type === 'background') return this.circleBackgroundColor
       } else {
-        let dateString = `${date.year}/${this.fillNumber(date.month + 1)}/${this.fillNumber(date.day)}`
+        let dateString = `${date.year}/${this.fillNumber(date.month + 1)}/${this.fillNumber(date.day)}${type}`
         const currentDateObj = this.markDateColorObj[dateString]
         try {
           if (typeof currentDateObj !== 'undefined' && currentDateObj.type === type) {
@@ -710,7 +700,7 @@ export default {
       this.calculateCalendarOfThreeMonth(this.yearOfCurrentShow, this.monthOfCurrentShow)
     },
     markDateDotColor(date, type) { // 当前日期是否需要标记
-      let dateString = `${date.year}/${this.fillNumber(date.month + 1)}/${this.fillNumber(date.day)}`
+      let dateString = `${date.year}/${this.fillNumber(date.month + 1)}/${this.fillNumber(date.day)}dot`
       const currentDateObj = this.markDateColorObj[dateString]
       try {
         if (typeof currentDateObj !== 'undefined' && currentDateObj.type === 'dot') {
@@ -725,9 +715,8 @@ export default {
       return false
     },
     markDateBottomText(date, type) { // 当前日期是否需要标记
-      let dateString = `${date.year}/${this.fillNumber(date.month + 1)}/${this.fillNumber(date.day)}`
-      let index = dateString + 'bottomText'
-      const currentDateObj = this.markDateColorObj[index]
+      let dateString = `${date.year}/${this.fillNumber(date.month + 1)}/${this.fillNumber(date.day)}bottomText`
+      const currentDateObj = this.markDateColorObj[dateString]
       try {
         if (typeof currentDateObj !== 'undefined' && currentDateObj.type === 'bottomText') {
           if (typeof type !== 'undefined' && type === 'bool') {
@@ -741,7 +730,7 @@ export default {
       return false
     },
     markDateTopRightIcon(date, type) { // 当前日期是否需要标记
-      let dateString = `${date.year}/${this.fillNumber(date.month + 1)}/${this.fillNumber(date.day)}`
+      let dateString = `${date.year}/${this.fillNumber(date.month + 1)}/${this.fillNumber(date.day)}topRightIcon`
       const currentDateObj = this.markDateColorObj[dateString]
       try {
         if (typeof currentDateObj !== 'undefined' && currentDateObj.type === 'topRightIcon') {
@@ -756,7 +745,7 @@ export default {
       return false
     },
     markDateDateColor(date, type) { // 当前日期是否需要标记
-      let dateString = `${date.year}/${this.fillNumber(date.month + 1)}/${this.fillNumber(date.day)}`
+      let dateString = `${date.year}/${this.fillNumber(date.month + 1)}/${this.fillNumber(date.day)}dateColor`
       const currentDateObj = this.markDateColorObj[dateString]
       try {
         if (typeof currentDateObj !== 'undefined' && currentDateObj.type === 'dateColor') {

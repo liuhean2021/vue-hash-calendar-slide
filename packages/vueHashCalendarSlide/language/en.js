@@ -1,9 +1,3 @@
-/**
- * @Description:   英文
- * @Author:         TSY
- * @CreateDate:     2020/3/22 21:59
- */
-
 export default {
   CONFIRM: 'CONFIRM',
   TODAY: 'TODAY',
