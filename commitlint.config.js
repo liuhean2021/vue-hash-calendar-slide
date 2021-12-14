@@ -14,6 +14,7 @@ module.exports = {
           test：增加测试
           chore：构建过程或辅助工具的变动
           del: 删除内容
+          add: 增加文件
 
           栗子：
           git commit -m 'feat: 增加 xxx 功能'
