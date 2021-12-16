@@ -1,5 +1,8 @@
 ![demo2.gif](https://github.com/liuhean2021/share/blob/main/demo2.gif?raw=true)
 ![demo1.gif](https://github.com/liuhean2021/share/blob/main/demo1.gif?raw=true)
+图片看不了可以直接看地址：
+<br/>https://github.com/liuhean2021/share/blob/main/demo1.gif
+<br/>https://github.com/liuhean2021/share/blob/main/demo2.gif
 <br/>上图只是配置中部分功能,更多演示参照下面运行项目
 
 # vue-hash-calendar-slide
