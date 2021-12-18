@@ -1,5 +1,5 @@
-![demo2.gif](https://file-share-2021.oss-cn-shanghai.aliyuncs.com/demo2.gif)
-![demo1.gif](https://file-share-2021.oss-cn-shanghai.aliyuncs.com/demo1.gif)
+![exe2.gif](https://file-share-2021.oss-cn-shanghai.aliyuncs.com/demo2.gif)
+![exe1.gif](https://file-share-2021.oss-cn-shanghai.aliyuncs.com/demo1.gif)
 <br/>上图只是配置中部分功能,更多演示参照下面运行项目
 
 # vue-hash-calendar-slide
