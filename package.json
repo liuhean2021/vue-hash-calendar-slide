@@ -1,6 +1,6 @@
 {
   "name": "vue-hash-calendar-slide",
-  "version": "2.0.5",
+  "version": "2.0.9",
   "author": "liuhean",
   "repository": {
     "type": "git",
@@ -43,7 +43,6 @@
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^4.0.0",
     "babel-plugin-component": "^1.1.1",
-    "husky": "^3.1.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue-template-compiler": "^2.5.16"
