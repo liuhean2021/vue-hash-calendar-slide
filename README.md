@@ -1,7 +1,7 @@
-http://file.allsmy.com/vhcs/demo1.gif
-![demo1](http://file.allsmy.com/vhcs/demo1.gif)
-http://file.allsmy.com/vhcs/demo2.gif
-![demo2](http://file.allsmy.com/vhcs/demo2.gif)
+https://file.allsmy.com/vhcs/demo1.gif
+![demo1.gif](https://file.allsmy.com/vhcs/demo1.gif)
+https://file.allsmy.com/vhcs/demo2.gif
+![demo2.gif](https://file.allsmy.com/vhcs/demo2.gif)
 <br/>上图只是配置中部分功能,更多演示参照下面运行项目
 
 # vue-hash-calendar-slide
