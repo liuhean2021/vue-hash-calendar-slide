@@ -378,7 +378,7 @@ export default {
       this.$set(this.checkedDate, 'month', month)
 
       // 当默认日期变化，重新计算了月份，那么需要重置选中当前日期，等同于点击一次日期动作
-      this.clickCalendarDay(this.checkedDate)
+      this.clickCalendarDay(this.checkedDate, false)
     },
     calculateCalendarOfMonth(year = new Date().getFullYear(), month = new Date().getMonth()) { // 计算每个月的日历
       let calendarOfCurrentMonth = []
@@ -436,7 +436,7 @@ export default {
       let dayOfWeek = dayOfMonth.getDay() // 判断第day天是星期几(返回[0-6]中的一个，0代表星期天，1代表星期一)
       return dayOfWeek
     },
-    clickCalendarDay(date) { // 点击日历上的日期
+    clickCalendarDay(date, clickEvent = true) { // 点击日历上的日期
       if (!!this.swipeStatus || this.isTouching) return
       if (!date) return
 
@@ -457,7 +457,9 @@ export default {
         this.showWeek()
       }
 
-      this.$emit('click', this.checkedDate)
+      if (clickEvent) {
+        this.$emit('click', this.checkedDate)
+      }
     },
     isToday(date) { // 该日期是否为今天
       return this.yearOfToday === date.year && this.monthOfToday === date.month && this.dayOfToday === date.day
