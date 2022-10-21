@@ -4,7 +4,7 @@
              :style="{'height': `${model === 'inline' ? calendarContentHeightOut : undefined}px`}" @click="close">
             <div class="calendar_content" :style="{'height': `${calendarContentHeight}px`, 'background-color': `${mainBackgroundColor}`, 'color': `${contentColor}`, 'box-shadow':`${borderBoxShadow}`, 'border-radius':`${borderRadius}`}" @click.stop>
                 <calendar ref="calendar" v-if="pickerType !== 'time'" :show="isShowCalendar" v-bind="bindFields" @height="heightChange"
-                          :default-date="defaultDatetime" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd" @slidechange="slideChange"
+                          :default-date="defaultDatetimeVal" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd" @slidechange="slideChange"
                           @change="dateChange" @click="dateClick"></calendar>
             </div>
         </div>
@@ -104,7 +104,8 @@ export default {
       calendarContentHeight: 0, // 日历组件高度
       calendarContentHeightOut: 0, // 日历组件高度
       calendarTitleHeight: 0, // 日历组件标题高度
-      firstTimes: true // 第一次触发
+      firstTimes: true, // 第一次触发
+      defaultDatetimeVal: undefined
     }
   },
   mounted() {
@@ -115,10 +116,11 @@ export default {
     this.language = languageUtil[this.lang.toUpperCase()]
   },
   watch: {
-    defaultDatetime(val) {
+    defaultDatetime: function(val, old) {
       if (!(val instanceof Date)) {
         throw new Error(`The calendar component's defaultDate must be date type!`)
       }
+      this.defaultDatetimeVal = val
     },
     pickerType: {
       handler(val) {
