@@ -376,6 +376,9 @@ export default {
       this.$set(this.checkedDate, 'day', tempDate.day)
       this.$set(this.checkedDate, 'year', year)
       this.$set(this.checkedDate, 'month', month)
+
+      // 当默认日期变化，重新计算了月份，那么需要重置选中当前日期，等同于点击一次日期动作
+      this.clickCalendarDay(this.checkedDate)
     },
     calculateCalendarOfMonth(year = new Date().getFullYear(), month = new Date().getMonth()) { // 计算每个月的日历
       let calendarOfCurrentMonth = []
