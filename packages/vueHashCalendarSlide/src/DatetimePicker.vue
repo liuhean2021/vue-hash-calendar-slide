@@ -4,7 +4,7 @@
              :style="{'height': `${model === 'inline' ? calendarContentHeightOut : undefined}px`}" @click="close">
             <div class="calendar_content" :style="{'height': `${calendarContentHeight}px`, 'background-color': `${mainBackgroundColor}`, 'color': `${contentColor}`, 'box-shadow':`${borderBoxShadow}`, 'border-radius':`${borderRadius}`}" @click.stop>
                 <calendar ref="calendar" v-if="pickerType !== 'time'" :show="isShowCalendar" v-bind="bindFields" @height="heightChange"
-                          :default-date="defaultDatetimeVal" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd" @slidechange="slideChange"
+                          :default-date="defaultDatetime" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd" @slidechange="slideChange"
                           @change="dateChange" @click="dateClick"></calendar>
             </div>
         </div>
@@ -36,6 +36,12 @@ export default {
       type: Date,
       default() {
         return new Date()
+      },
+      validator(value) {
+        if (!(value instanceof Date)) {
+          throw new Error(`The calendar component's defaultDate must be date type!`)
+        }
+        return true
       }
     },
     format: null, // 确认选择之后，返回的日期格式
@@ -104,8 +110,7 @@ export default {
       calendarContentHeight: 0, // 日历组件高度
       calendarContentHeightOut: 0, // 日历组件高度
       calendarTitleHeight: 0, // 日历组件标题高度
-      firstTimes: true, // 第一次触发
-      defaultDatetimeVal: undefined
+      firstTimes: true // 第一次触发
     }
   },
   mounted() {
@@ -116,12 +121,6 @@ export default {
     this.language = languageUtil[this.lang.toUpperCase()]
   },
   watch: {
-    defaultDatetime: function(val, old) {
-      if (!(val instanceof Date)) {
-        throw new Error(`The calendar component's defaultDate must be date type!`)
-      }
-      this.defaultDatetimeVal = val
-    },
     pickerType: {
       handler(val) {
         if (val === 'time') {
